@@ -2,6 +2,9 @@
 
 This PowerShell script enables silent in-place upgrades to Windows 11, specifically designed for systems that fail compatibility checks when attempting major version upgrades through Windows Update.
 
+> [!NOTE]
+> **Managing more than one machine?** This script force-upgrades a single PC. [**TridentStack Control**](https://control.tridentstack.com) does the same unattended Windows 11 feature upgrades on unsupported hardware across your entire fleet — driven from a console, with staged rollout rings, maintenance-window reboots, and live per-endpoint monitoring. Free for your first 200 endpoints → [tridentstack.com](https://tridentstack.com)
+
 ## Purpose
 
 Windows 11 systems on older major versions (21H2, 22H2) often cannot upgrade to newer versions (23H2, 24H2) via Windows Update due to failing compatibility checks. This script bypasses these limitations by:
@@ -84,6 +87,20 @@ All configurable parameters are at the top of the script:
 - `$LOG_FILE` - Main log file path
 - `$MONITOR_LOG` - Process monitor log path
 - `$ALLOW_AUTOMATIC_REBOOT` - Enable/disable automatic reboots
+
+## From One Machine to Your Whole Fleet
+
+DirectWindowsUpgrade is a hacky way to push one stubborn PC onto Windows 11. If you're running it unattended across more than a handful of machines, you've outgrown a script.
+
+**[TridentStack Control](https://tridentstack.com)** is the managed version of what this script does:
+
+- **Same bypass, managed** — silent in-place feature upgrades on hardware that fails Windows Update's TPM/CPU/SecureBoot checks, driven from a console instead of copied box by box.
+- **Staged rollout rings** — ship to a canary group, let it bake, then expand. No more "ran it on 200 machines and hoped."
+- **Reboot on your terms** — maintenance windows, deferral, and active-hours gating instead of a hardcoded `$ALLOW_AUTOMATIC_REBOOT`.
+- **See every upgrade** — per-endpoint progress, logs, and failure reasons in one place, with the rollout halting automatically when failures spike.
+- **Not just upgrades** — full patch management for Windows, macOS, and Linux, plus vulnerability detection and compliance.
+
+Free for up to 200 endpoints. → **[control.tridentstack.com](https://control.tridentstack.com)**
 
 ## Attribution
 
